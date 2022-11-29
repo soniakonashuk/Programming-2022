@@ -12,6 +12,7 @@ int main() {
 	for (double x = -3; x < 1.1; x+= 0.1) {
 		cout << x << " " << f(x) << endl;
 	}
+	
 
 	return 0;
 }
