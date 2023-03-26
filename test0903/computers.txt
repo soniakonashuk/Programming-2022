@@ -1,0 +1,4 @@
+Desktop HP 500.0 Office Intel_Core_i7
+Laptop Dell 800.0 15.6 8
+Desktop Acer 400.0 Gaming AMD_Ryzen_5
+Laptop Lenovo 700.0 14.0 16

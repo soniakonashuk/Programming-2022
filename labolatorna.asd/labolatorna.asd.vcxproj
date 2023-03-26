@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{3c2a3a75-e45e-42b3-8919-93917857dedc}</ProjectGuid>
-    <RootNamespace>Project4</RootNamespace>
+    <ProjectGuid>{3c36438b-7f0c-492a-8759-fbf9389f8f02}</ProjectGuid>
+    <RootNamespace>labolatornaasd</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,9 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="algoritm2.cpp" />
-    <ClCompile Include="labolatorna1.cpp" />
-    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="algoritm1(24.02).cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="doctest.h" />

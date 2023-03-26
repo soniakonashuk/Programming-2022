@@ -1,0 +1,5 @@
+Acer 400
+HP 500
+Lenovo 700
+Dell 800
+Total laptop price: 1500

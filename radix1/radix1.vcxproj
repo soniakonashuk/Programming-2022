@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{3c2a3a75-e45e-42b3-8919-93917857dedc}</ProjectGuid>
-    <RootNamespace>Project4</RootNamespace>
+    <ProjectGuid>{792fd9db-cf13-41e9-b084-158dcc001b5e}</ProjectGuid>
+    <RootNamespace>radix1</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,12 +127,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="algoritm2.cpp" />
-    <ClCompile Include="labolatorna1.cpp" />
-    <ClCompile Include="Source.cpp" />
+    <ClInclude Include="doctest.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="doctest.h" />
+    <ClCompile Include="radix.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
