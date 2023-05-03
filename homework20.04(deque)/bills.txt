@@ -1,0 +1,14 @@
+Gas bill: Alice Brown, 4, 170.25
+Water bill: John Smith, 2800, 9.8, 42.60
+Water bill: Emma Johnson, 4200, 13.5, 58.20
+Gas bill: James Lee, 3, 120.75
+Water bill: Sophia Davis, 5200, 16.6, 72.90
+Gas bill: Michael Wilson, 2, 95.80
+Gas bill: Lily Jones, 1, 80.40
+Water bill: Ethan Clark, 5700, 18.9, 82.60
+Gas bill: Chloe Rodriguez, 2, 125.30
+Water bill: Ryan Martinez, 4900, 15.7, 68.20
+Water bill: Samantha Allen, 3500, 11.3, 49.40
+Gas bill: Benjamin Turner, 1, 85.60
+Gas bill: Elizabeth Wright, 2, 105.90
+Water bill: William Scott, 6400, 21.5, 93.80

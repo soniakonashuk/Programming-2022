@@ -1,4 +1,7 @@
 ﻿#include <iostream>
+#include <locale>;
+#include "windows.h";
+
 using namespace std;
 template <typename T>
 T* split_array(const T arr[], const int size, int& new_size) {
@@ -8,10 +11,10 @@ T* split_array(const T arr[], const int size, int& new_size) {
     }
 
     // Останній елемент масиву
-    const T pivot = arr[size - 1];
+    const T pivot = arr[size - 1];//для зберігання останнього елементу
 
-    T* greater = new T[size - 1];
-    T* lesser = new T[size - 1];
+    T* greater = new T[size - 1];//більші за півот
+    T* lesser = new T[size - 1];//менші рівні за півот
     int greater_size = 0;
     int lesser_size = 0;
 
@@ -26,7 +29,7 @@ T* split_array(const T arr[], const int size, int& new_size) {
     }
 
     // Повернення масиву з меншою кількістю елементів
-    if (greater_size < lesser_size) {
+    if (greater_size < lesser_size) { 
         new_size = greater_size;
         delete[] lesser;
         return greater;
@@ -39,6 +42,7 @@ T* split_array(const T arr[], const int size, int& new_size) {
 }
 
 int main() {
+    setlocale(LC_ALL, "Ukrainian");
     // Приклад для масиву цілих чисел
     int int_arr[] = { 7, 2, 8, 9, 1, 6, 4 };
     const int int_size = sizeof(int_arr) / sizeof(int_arr[0]);
@@ -47,7 +51,7 @@ int main() {
     try {
         int* result = split_array(int_arr, int_size, new_int_size);
 
-        cout << "Елементи масиву з меншою кількістю елементів: ";
+        wcout << "Елементи масиву з меншою кількістю елементів: ";
         for (int i = 0; i < new_int_size; i++) {
            cout << result[i] << " ";
         }
@@ -61,11 +65,11 @@ int main() {
 
     // Приклад для масиву рядків
     string str_arr[] = { "apple", "banana", "orange", "strawberry", "pear" };
-    const int str_size = sizeof(str_arr) / sizeof(str_arr[0]);
+    const int str_size = sizeof(str_arr) / sizeof(str_arr[0]);//розмір 1 елеменнта масиву
     //винятки
     int new_str_size;
     try {
-        string* result = split_array(str_arr, str_size, new_str_size);
+        string* result = split_array(str_arr, str_size, new_str_size);//new str size зберігає розмір нового масиву з split array
 
         cout << "Елементи масиву з меншою кількістю елементів: ";
         for (int i = 0; i < new_str_size; i++) {

@@ -1,0 +1,7 @@
+Alice Brown,4,70.25
+James Lee,3,20.75
+Michael Wilson,2,5.8
+Chloe Rodriguez,2,25.3
+Elizabeth Wright,2,5.9
+Lily Jones,1,0.4
+Benjamin Turner,1,5.6
