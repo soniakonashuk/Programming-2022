@@ -1,0 +1,112 @@
+СТВОРИ 2 ФАЙЛА 
+input.txt -
+Airplane 10000 750 0
+HotAirBalloon 5000 0 3
+Airplane 12000 800 0
+HotAirBalloon 6000 0 4
+output.txt (пустий)
+
+#include <iostream>
+#include <vector>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+// Абстрактний базовий клас
+class Aircraft {
+public:
+    Aircraft(const string& type, int maxHeight) : type(type), maxHeight(maxHeight) {}
+    virtual ~Aircraft() {}
+
+    virtual void print() const = 0;
+
+    int getMaxHeight() const { return maxHeight; }
+
+protected:
+    string type;
+    int maxHeight;
+};
+
+// Похідний клас
+class Airplane : public Aircraft {
+public:
+    Airplane(const string& type, int maxHeight, int speed)
+        : Aircraft(type, maxHeight), speed(speed) {}
+
+    void print() const override {
+        cout << "Type: " << type << ", Max Height: " << maxHeight
+            << ", Speed: " << speed << '\n';
+    }
+
+    double calculateTravelTime(int distance) const {
+        return static_cast<double>(distance) / speed;
+    }
+
+private:
+    int speed;
+};
+
+// Похідний клас
+class AirBalloon : public Aircraft {
+public:
+    AirBalloon(const string& type, int maxHeight, int maxFlightTime)
+        : Aircraft(type, maxHeight), maxFlightTime(maxFlightTime) {}
+
+    void print() const override {
+        cout << "Type: " << type << ", Max Height: " << maxHeight
+            << ", Max Flight Time: " << maxFlightTime << '\n';
+    }
+
+private:
+    int maxFlightTime;
+};
+
+int main() {
+    vector<Aircraft*> aircrafts;
+
+    // Зчитування з файлу та заповнення контейнера
+    ifstream inputFile("input.txt");
+    string type;
+    int maxHeight, speed, maxFlightTime;
+
+    while (inputFile >> type >> maxHeight >> speed >> maxFlightTime) {
+        if (type == "Airplane") {
+            aircrafts.push_back(new Airplane(type, maxHeight, speed));
+        }
+        else if (type == "HotAirBalloon") {
+            aircrafts.push_back(new AirBalloon(type, maxHeight, maxFlightTime));
+        }
+    }
+
+    inputFile.close();
+
+    // Запис у файл літальних апаратів, які можуть піднятися на висоту x
+    ofstream outputFile("output.txt");
+    int x = 5000;  // Приклад
+    for (const auto& aircraft : aircrafts) {
+        if (aircraft->getMaxHeight() >= x) {
+            aircraft->print();
+            outputFile << aircraft->getMaxHeight() << '\n';
+        }
+    }
+
+    outputFile.close();
+
+    // Обрахунок часу перельоту для літаків
+    int distance = 600;  // відстань між Києвом та Львовом
+    for (const auto& aircraft : aircrafts) {
+        Airplane* airplane = dynamic_cast<Airplane*>(aircraft);
+        if (airplane) {
+            double travelTime = airplane->calculateTravelTime(distance);
+            cout << "Travel Time: " << travelTime << " hours.\n";
+        }
+    }
+
+    // Очищення пам'яті
+    for (const auto& aircraft : aircrafts) {
+        delete aircraft;
+    }
+
+    return 0;
+}
