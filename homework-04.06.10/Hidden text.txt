@@ -1,1 +1,63 @@
-Hidden text
+1) КОД ДО ПЕРШОГО
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+template<typename T>
+vector<T> processContainer(const vector<T>& container, const T& elem) {
+    // отримуєм вектор
+    vector<T> result = container;
+    // рахуєм кількість елементів у вектопрів
+    int count = 0;
+
+    // цикл для рахування елементів
+    for (const auto& item : result) {
+        if (item == elem) {
+            count++;
+        }
+    }
+
+    // якщо більше два видаляєм все  що є елементом
+    if (count > 2) {
+        result.erase(remove(result.begin(), result.end(), elem), result.end());
+    }
+
+    // якщо менше 2, переміщаєм в кінець
+    else if (count <= 2) {
+        stable_partition(result.begin(), result.end(), [&](const T& item) {
+            return item != elem;
+        });
+    }
+
+    return result;
+}
+
+int main() {
+    // тестуємо можемо переписати 
+    vector<double> numbers = { 1.5, 2.0, 3.5, 2.0, 4.0, 2.0, 5.5 };
+    double elem = 2.0;
+
+    vector<double> processedNumbers = processContainer(numbers, elem);
+
+    cout << "Processed Numbers: ";
+    for (const auto& number : processedNumbers) {
+        cout << number << " ";
+    }
+    cout << endl;
+
+    vector<string> strings = { "sonya", "nastya", "olena", "sonya", "maryana" };
+    string str = "sonya";
+
+    vector<string>processedStrings = processContainer(strings, str);
+
+    cout << "Processed Strings: ";
+    for (const auto& str : processedStrings) {
+        cout << str << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
